@@ -47,9 +47,9 @@ def organize():
 def disorganize():
     current_dir = os.getcwd()
     files_and_folders = os.listdir()
-    folders = [_ for _ in files_and_folders if os.path.isdir(_)]
+    folders = [_ for _ in files_and_folders if (os.path.isdir(_) and _ != '.git')]
     for folder in folders:
-        files_in_folder = [(f'{current_dir}\\{folder}\\' + _) for _ in os.listdir(folder)]
+        files_in_folder = [(f'{current_dir}{os.path.sep}{folder}{os.path.sep}' + _) for _ in os.listdir(folder)]
         if len(files_in_folder) != 0:
             [shutil.move(file, current_dir) for file in files_in_folder]
 
