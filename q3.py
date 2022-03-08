@@ -8,6 +8,7 @@ print all the files and folders inside that folder.
 """
 import os
 from time import sleep
+
 total_exceptions = []
 
 
@@ -32,6 +33,9 @@ def explore(path):
     # 1. identify whether it is a folder or file
     # 2. if its a folder, you want to go inside that folder and then look for more folder
 
+
+path = ""
+explore(path)
 
 if __name__ == '__main__':
     path = ""
