@@ -14,12 +14,18 @@ total_exceptions = []
 def explore(path):
     path = os.path.abspath(path)
     try:
-        folders = [path + '\\' + i for i in os.listdir(path) if os.path.isdir(path + '\\' + i)]
+        folders = [path + os.path.sep + i for i in os.listdir(path) if os.path.isdir(path + os.path.sep + i)]
+        files = [path + os.path.sep + i for i in os.listdir(path) if os.path.isfile(path + os.path.sep + i)]
+
+        if files is not None:
+            for file in files:
+                print(" " * file.count(os.path.sep) + file)
+
         if len(folders) != 0:
             for folder in folders:
-                print(" " * folder.count('\\') + folder)
+                print(" " * folder.count(os.path.sep) + folder)
                 explore(folder)
-                sleep(5)
+                sleep(0.08)
     except Exception as e:
         total_exceptions.append(e)
 
