@@ -54,7 +54,7 @@ def disorganize():
             [shutil.move(file, current_dir) for file in files_in_folder]
 
 
-if __name__ == "__main__":
+def program():
     while True:
         input_txt = '-------Program Start-------\nenter 1: To organize the files \nenter 2: To disorganize the ' \
                     'files\nenter 3: To quit\nEnter here: '
@@ -70,10 +70,14 @@ if __name__ == "__main__":
                 print("Thank you for using the program")
                 sleep(1)
                 break
+
         except Exception as e:
             print("Could not perform the task. The errors are: ")
             print(e)
             print("*** Please run the program in administrative mode in terminal ***\n")
 
 
-
+if __name__ == "__main__":
+    program()
+else:
+    program()
